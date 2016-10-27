@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 class VariableContador {
+	
+	// Recurso compartido entre los hilos
 	public static int contador = 0;
 	
 	private static final Object mutex = new Object();
@@ -20,6 +22,11 @@ class Hilocontador extends Thread {
 		this.vocal  = vocal;
 	}
 	
+	
+	/* 
+	 * Método que verifica que el caracter del texto 
+	 * es la vocal del hilo correspondiente
+	 */
 	public void verificacionVocal(char caracter) {	
 		if (caracter == vocal) {
 			VariableContador.incrementarContador();		
